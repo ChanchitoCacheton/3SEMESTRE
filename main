@@ -16,26 +16,24 @@ ZZ Min(ZZ a, ZZ b){
 }
 
 ZZ lsbgcd (ZZ u, ZZ v){
-    ZZ a,b,t,aux;
+    ZZ t,aux;
     int s;
-    a=u;
-    b=v;
-    while(b!=0){
+    while(v!=0){
         s=0;
-        while ((b<<s) <= a){
+        while ((v<<s) <= u){
             s++;
         }
         s=s-1;
-        t= Min(a-(b<<s),(b<<(s+1))-a);
-        a=b;
-        b=t;
-        if(a<b){
-            aux=a;
-            a=b;
-            b=aux;
+        t= Min(u-(v<<s),(v<<(s+1))-u);
+        u=v;
+        v=t;
+        if(u<v){
+            aux=u;
+            u=v;
+            v=aux;
         }
     }
-    return a;
+    return u;
 
     }
 
